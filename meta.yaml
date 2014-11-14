@@ -1,0 +1,36 @@
+
+package:
+    name: spark
+    version: 1.1.0
+
+source:
+    #git_url: https://github.com/apache/spark                                               # [linux]
+    #git_tag: v1.1.0                                                                        # [linux]
+    git_url: git://git.apache.org/spark.git                                               # [linux]
+    git_tag: 2f9b2bd7844ee8393dc9c319f4fefedf95f5e460                                      # [linux]
+    fn: spark-1.1.0-bin-hadoop2.5.tgz                                                      # [osx]
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - python
+        - apache-maven  # [linux]
+        - scala 2.10.*  # [linux]
+
+    run:
+        - python
+        - apache-maven  # [linux]
+        - py4j
+
+test:
+    imports:
+        - pyspark
+
+    commands:
+        - pyspark --help
+
+about:
+    home: https://spark.apache.org/
+    license: Apache 2.0 license
