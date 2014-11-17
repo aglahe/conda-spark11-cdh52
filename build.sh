@@ -79,7 +79,7 @@ LinuxInstallation() {
     case ${MACHINE} in
         'Linux')
             # Build package by using specially preapared script:
-            ./make-distribution.sh --tgz -Pyarn -Phadoop-2.4 -Dhadoop.version=2.5.0-cdh5.2.0 || return 1;
+            ./make-distribution.sh --tgz -Pyarn -Phadoop-2.5 -Dhadoop.version=2.5.0-cdh5.2.0 || return 1;
             tar --strip-components=1 -xvpf ${pkgBaseDir}*.tgz -C ${fullPkgBaseDir}/ || return 1;
             ;;
         'Darwin')
